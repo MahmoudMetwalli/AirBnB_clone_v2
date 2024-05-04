@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 # Checks and makes dirs and configure nginx
-content="<html>
-  <head>
-  </head>
-  <body>
-    Holberton School
-  </body>
-</html>
-" 
 sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y install nginx
@@ -26,7 +18,7 @@ fi
 if [ ! -d "/data/web_static/releases/test/" ];
 then sudo mkdir -p "/data/web_static/releases/test/"
 fi
-sudo bash -c " echo $content > '/data/web_static/releases/test/index.html'"
+sudo bash -c " echo 'this is a test' > '/data/web_static/releases/test/index.html'"
 sudo ln -sf "/data/web_static/releases/test/" "/data/web_static/current"
 sudo chown -hR "ubuntu:ubuntu" "/data/"
 FIND=$(grep "/hbnb_static/" /etc/nginx/sites-enabled/default)
