@@ -8,6 +8,9 @@ content="<html>
   </body>
 </html>
 " 
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y install nginx
 if [ ! -d "/data/" ];
 then sudo mkdir -p "/data/"
 fi
