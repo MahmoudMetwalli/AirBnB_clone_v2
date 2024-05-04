@@ -26,10 +26,6 @@ fi
 if [ ! -d "/data/web_static/releases/test/" ];
 then sudo mkdir -p "/data/web_static/releases/test/"
 fi
-if [ ! -d "/data/web_static/current/" ];
-then sudo mkdir -p "/data/web_static/current/"
-fi
-
 sudo bash -c " echo $content > '/data/web_static/releases/test/index.html'"
 sudo ln -sf "/data/web_static/releases/test/" "/data/web_static/current"
 sudo chown -hR "ubuntu:ubuntu" "/data/"
