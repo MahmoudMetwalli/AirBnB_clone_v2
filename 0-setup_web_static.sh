@@ -32,8 +32,7 @@ fi
 
 sudo bash -c " echo $content > '/data/web_static/releases/test/index.html'"
 sudo ln -sf "/data/web_static/releases/test/" "/data/web_static/current"
-sudo chown -RHL "ubuntu" "/data/"
-sudo chgrp -RHL "ubuntu" "/data/"
+sudo chown -RHL "ubuntu:ubuntu" "/data/"
 FIND=$(grep "/hbnb_static/" /etc/nginx/sites-enabled/default)
 if [[ -z $FIND ]]; then
 sudo sed -i "40i\	location /hbnb_static/ {\n\talias /data/web_static/current/;\n\t}\n" /etc/nginx/sites-enabled/default
