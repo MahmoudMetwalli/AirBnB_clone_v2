@@ -20,6 +20,9 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """ init methoud for BaseModel"""
+        self.id = None
+        self.created_at = None
+        self.updated_at = None
         if kwargs:
             for key, value in kwargs.items():
                 if key == '__class__':
@@ -27,9 +30,11 @@ class BaseModel:
                 if key == "created_at" or key == "updated_at":
                     value = datetime.fromisoformat(value)
                 setattr(self, key, value)
-        else:
+        if self.id is None:
             self.id = str(uuid.uuid4())
+        if self.created_at is None:
             self.created_at = datetime.now()
+        if self.updated_at is None:
             self.updated_at = datetime.now()
 
     if getenv('HBNB_TYPE_STORAGE') == "db":
