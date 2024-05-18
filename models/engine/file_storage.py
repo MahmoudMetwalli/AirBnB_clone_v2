@@ -55,5 +55,5 @@ class FileStorage:
             self.__objects.pop(key, None)
 
     def close(self):
-        """calls relod"""
+        """calls reload"""
         self.reload()
