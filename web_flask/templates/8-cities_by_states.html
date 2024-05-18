@@ -8,14 +8,14 @@
         <UL>
 			{%- for key, state in states | dictsort %}
             <LI>{{ state.id }}: <B>{{ state.name }}</B>
-				<UL>
+			<UL>
 					{%- for key2, city in cities | dictsort %}
 					{%- if city.state_id == state.id  %}
-					<LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
+				<LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
 					{%- endif %}
 					{%- endfor %}
-				</UL>
-			</LI>
+			</UL>
+	    </LI>
 			{%- endfor %}
         </UL>
     </BODY>
