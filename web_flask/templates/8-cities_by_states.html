@@ -6,17 +6,15 @@
     <BODY>
         <H1>States</H1>
         <UL>
-			{%- for key, state in states | dictsort %}
+			{% for key, state in states | dictsort %}
             <LI>{{ state.id }}: <B>{{ state.name }}</B>
 			<UL>
-					{%- for key2, city in cities | dictsort %}
-					{%- if city.state_id == state.id  %}
+					{% for key2, city in cities | dictsort %}{% if city.state_id == state.id  %}
 				<LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
-					{%- endif %}
-					{%- endfor %}
+					{% endif %}{% endfor %}
 			</UL>
 	    </LI>
-			{%- endfor %}
+			{% endfor %}
         </UL>
     </BODY>
 </HTML>
