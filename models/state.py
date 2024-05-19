@@ -15,9 +15,9 @@ class State(BaseModel, Base):
         __tablename__ = "states"
         name = Column(String(128), nullable=False)
         cities = relationship("City",
-                               backref=backref("state", cascade="all"),
-                               cascade="all, delete-orphan",
-                               single_parent=True)
+                              backref=backref("state", cascade="all"),
+                              cascade="all, delete-orphan",
+                              single_parent=True)
     else:
         name = ""
 
