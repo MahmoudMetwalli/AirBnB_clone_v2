@@ -40,10 +40,10 @@ margin-left: -68px;
 padding-top: 20px;
 padding-bottom: 20px;
 position: relative;
-max-height: 300;
-overflow: scroll;
 }
-section.filters div:hover ul.popover {display: block;}
+section.filters div:hover ul.popover {display: block;
+max-height: 300;
+overflow: scroll;}
 section.filters div ul li ul {list-style: none;
 margin-left: -19px;}
 section.filters div ul li h2{font-size: 16px;
