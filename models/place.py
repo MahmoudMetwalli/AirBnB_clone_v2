@@ -7,6 +7,16 @@ from sqlalchemy import Column, String, ForeignKey, Integer, Float, Table
 from sqlalchemy.orm import relationship, backref
 from models.amenity import Amenity
 
+if getenv('HBNB_TYPE_STORAGE') == "db":
+    place_amenity = Table('association', Base.metadata,
+                          Column('place_id', String(60),
+                                 ForeignKey('places.id'),
+                                 primary_key=True, nullable=False),
+                          Column('amenity_id', String(60),
+                                 ForeignKey('amenities.id'),
+                                 primary_key=True,nullable=False)
+                          )
+
 
 class Place(BaseModel, Base):
     """class : Place to store more data"""
@@ -28,6 +38,10 @@ class Place(BaseModel, Base):
                                backref=backref("place", cascade="all"),
                                cascade="all, delete-orphan",
                                single_parent=True)
+        place_amenities = relationship("Amenity",
+                                       secondary=place_amenity,
+                                       backref="place_amenities",
+                                       viewonly=False)
         amenity_ids = []
     else:
         city_id = ""
